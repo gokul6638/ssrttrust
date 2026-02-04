@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SSRT Online Donation</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="donation.css" />
+</head>
+<body>
+
+<!-- HERO HEADER -->
+<header class="hero d-flex flex-column justify-content-center align-items-center text-center text-light">
+  <h1 class="display-4 animate__animated animate__fadeInDown">Offer Your Donation</h1>
+  <p class="lead animate__animated animate__fadeInUp">Support the temple and receive divine blessings</p>
+</header>
+
+<!-- NAVBAR for donation.html -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">SSRT</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDonation" aria-controls="navbarNavDonation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDonation">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="donation.html">Donation</a></li>
+        <li class="nav-item"><a class="nav-link" href="about us.html">About</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact us.html">Contact</a>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- DONATION FORM SECTION -->
+<section class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-12">
+      <div class="card shadow-lg p-4 animate-on-scroll">
+        <h3 class="text-center mb-4">Donation Form</h3>
+        <form id="donationForm">
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" placeholder="Your full name" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Mobile Number</label>
+            <input type="tel" class="form-control" placeholder="Your mobile number" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control" placeholder="Your email" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Donation Amount</label>
+            <input type="number" class="form-control" placeholder="Enter amount (INR)" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Purpose of Donation</label>
+            <select class="form-select" required>
+              <option value="">Select purpose</option>
+              <option>Annadanam (Food offering)</option>
+              <option>Temple Renovation</option>
+              <option>Festive Seva</option>
+              <option>General Donation</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success w-100 py-2">Proceed to Payment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white text-center py-3">
+  © 2025 <a href="https://www.ssrttrust.com" class="text-white">www.ssrttrust.com</a> — All rights reserved
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="donation.js"></script>
+<!-- 🌸 Floating Circular Music Player -->
+<div id="music-player" title="SSRT Music">
+  <button id="toggle-music" aria-label="SSRT Music">
+    ▶
+  </button>
+  <audio id="bg-music" src="audio/temple-bg-song.mp3" loop></audio>
+</div>
+
+<style>
+  /* 🎵 Fixed circular music player styling with temple gold theme */
+  #music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    /* circular container */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #d4af37; /* gold color */
+    box-shadow:
+      0 0 10px #d4af37,
+      inset 0 0 10px #ffd700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  #toggle-music {
+    all: unset; /* reset default button styles */
+    font-size: 28px;
+    color: #000000cc;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  #toggle-music:hover {
+    background-color: #ffd700cc; /* lighter gold on hover */
+    color: #000;
+  }
+
+  #toggle-music:focus-visible {
+    outline: 2px solid #ffd700; /* visible outline for accessibility */
+    outline-offset: 3px;
+  }
+</style>
+
+<script>
+  const audio = document.getElementById('bg-music');
+  const toggleBtn = document.getElementById('toggle-music');
+  const musicPlayerDiv = document.getElementById('music-player');
+
+  // Restore previously saved playback time and state from localStorage
+  const savedTime = localStorage.getItem('music-time');
+  const wasPlaying = localStorage.getItem('music-playing') === 'true';
+
+  if (savedTime) {
+    audio.currentTime = parseFloat(savedTime);
+  }
+
+  if (wasPlaying) {
+    audio.play().catch(() => {
+      // Autoplay might be blocked; user will need to click button
+    });
+    toggleBtn.textContent = "⏸";
+  } else {
+    toggleBtn.textContent = "▶";
+  }
+
+  // Toggle play/pause when user clicks on the button or button container
+  toggleBtn.addEventListener('click', toggleMusic);
+  musicPlayerDiv.addEventListener('click', (e) => {
+    // Avoid double toggle when clicking button inside container
+    if (e.target === musicPlayerDiv) {
+      toggleMusic();
+    }
+  });
+
+  function toggleMusic() {
+    if (audio.paused) {
+      audio.play();
+      toggleBtn.textContent = "⏸";
+      localStorage.setItem('music-playing', 'true');
+    } else {
+      audio.pause();
+      toggleBtn.textContent = "▶";
+      localStorage.setItem('music-playing', 'false');
+    }
+  }
+
+  // Save playback position every second
+  setInterval(() => {
+    localStorage.setItem('music-time', audio.currentTime);
+  }, 1000);
+</script>
+</body>
+</html>

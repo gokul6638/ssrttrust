@@ -1,0 +1,42 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f9fa;
+}
+
+/* HERO HEADER */
+.hero {
+  background: url('images/donation-bg.jpg') center/cover fixed no-repeat;
+  min-height: 50vh;
+  padding: 2rem;
+  backdrop-filter: brightness(0.75);
+  filter: drop-shadow(0 0 5px black);
+  position: relative;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+/* FORM CARD ANIMATION */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
+/* For all footer links */
+footer a {
+  text-decoration: none;
+}

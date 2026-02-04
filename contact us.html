@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | Sri Seetha Ramar Temple</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">SSRT</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="donation.html">Donation</a></li>
+          <li class="nav-item"><a class="nav-link" href="about us.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact us.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      background-color: #f5f5f5;
+    }
+    #contact-us {
+      background-color: #ffffff;
+      padding: 40px 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+    }
+    .contact-details {
+      max-width: 600px;
+      margin: 30px auto;
+    }
+    .contact-card {
+      background: #f2f2f2;
+      border-radius: 8px;
+      padding: 20px 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .contact-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .contact-pos {
+      color: #333;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .contact-mob {
+      color: #198754;
+      font-size: 1.1rem;
+      font-family: monospace;
+      position: relative;
+    }
+    /* Phone number text styling for clickable, no underline */
+    .contact-number {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: text;
+      display: inline-block;
+      padding: 2px 4px;
+    }
+    .contact-number:hover {
+      background: #fffbe7;
+    }
+
+    /* Popup styling */
+    .contact-options-popup {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 28px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      z-index: 9999;
+      box-shadow: 0 2px 8px rgba(60,60,60,0.12);
+      min-width: 140px;
+      padding: 8px 0;
+    }
+    .contact-options-popup button {
+      display: block;
+      width: 100%;
+      background: none;
+      border: none;
+      color: #313131;
+      padding: 8px 16px;
+      text-align: left;
+      cursor: pointer;
+      font-size: 1.03rem;
+      border-radius: 0;
+      transition: background 0.15s;
+    }
+    .contact-options-popup button:hover {
+      background: #f2efce;
+      color: #7d5230;
+    }
+
+    .social-links {
+      margin-top: 30px;
+    }
+    .social-links a {
+      font-size: 2rem;
+      color: #555;
+      margin: 0 15px;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .social-links a:hover {
+      color: #000;
+      transform: scale(1.1);
+    }
+
+    /* 🎵 Fixed circular music player styling with temple gold theme */
+    #music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      /* circular container */
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #d4af37; /* gold color */
+      box-shadow:
+        0 0 10px #d4af37,
+        inset 0 0 10px #ffd700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    #toggle-music {
+      all: unset; /* reset default button styles */
+      font-size: 28px;
+      color: #000000cc;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    #toggle-music:hover {
+      background-color: #ffd700cc; /* lighter gold on hover */
+      color: #000;
+    }
+    #toggle-music:focus-visible {
+      outline: 2px solid #ffd700; /* visible outline for accessibility */
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="contact-us">
+    <h2 class="text-center mb-4">Contact Us</h2>
+
+    <!-- Contact Details Cards -->
+    <div class="contact-details mx-auto">
+      <div class="contact-card">
+        <div class="contact-name">ரவி குமார் G</div>
+        <div class="contact-pos">அறங்காவலர்</div>
+        <div class="contact-mob">
+          <span class="contact-number" data-phone="+919842374488" data-whatsapp="9842374488">+91 98423 74488</span>
+          <div class="contact-options-popup">
+            <button class="call-btn">Call</button>
+            <button class="wa-btn">WhatsApp</button>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">தனபால் R</div>
+        <div class="contact-pos">துணை அறங்காவலர்</div>
+        <div class="contact-mob">
+          <span class="contact-number" data-phone="+919344898885" data-whatsapp="9344898885">+91 93448 98885</span>
+          <div class="contact-options-popup">
+            <button class="call-btn">Call</button>
+            <button class="wa-btn">WhatsApp</button>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">கிருஷ்ணன் K C</div>
+        <div class="contact-pos">இணை அறங்காவலர்</div>
+        <div class="contact-mob">
+          <span class="contact-number" data-phone="+919362993070" data-whatsapp="9362993070">+91 93629 93070</span>
+          <div class="contact-options-popup">
+            <button class="call-btn">Call</button>
+            <button class="wa-btn">WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="social-links text-center">
+      <h4 class="mt-4 mb-3">Follow Us on Social Media</h4>
+      <a href="https://www.facebook.com/seetharamartemplekanuvai/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/seetharamartemplekanuvai/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@SriSeethaRamarTemple/" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+
+  <!-- Optional: Bootstrap JS (for any interactivity) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- 🌸 Floating Circular Music Player -->
+  <div id="music-player" title="SSRT Music">
+    <button id="toggle-music" aria-label="SSRT Music">
+      ▶
+    </button>
+    <audio id="bg-music" src="audio/temple-bg-song.mp3" loop></audio>
+  </div>
+
+  <script>
+    const audio = document.getElementById('bg-music');
+    const toggleBtn = document.getElementById('toggle-music');
+    const musicPlayerDiv = document.getElementById('music-player');
+
+    // Restore previously saved playback time and state from localStorage
+    const savedTime = localStorage.getItem('music-time');
+    const wasPlaying = localStorage.getItem('music-playing') === 'true';
+
+    if (savedTime) {
+      audio.currentTime = parseFloat(savedTime);
+    }
+
+    if (wasPlaying) {
+      audio.play().catch(() => {
+        // Autoplay might be blocked; user will need to click button
+      });
+      toggleBtn.textContent = "⏸";
+    } else {
+      toggleBtn.textContent = "▶";
+    }
+
+    // Toggle play/pause when user clicks on the button or button container
+    toggleBtn.addEventListener('click', toggleMusic);
+    musicPlayerDiv.addEventListener('click', (e) => {
+      // Avoid double toggle when clicking button inside container
+      if (e.target === musicPlayerDiv) {
+        toggleMusic();
+      }
+    });
+
+    function toggleMusic() {
+      if (audio.paused) {
+        audio.play();
+        toggleBtn.textContent = "⏸";
+        localStorage.setItem('music-playing', 'true');
+      } else {
+        audio.pause();
+        toggleBtn.textContent = "▶";
+        localStorage.setItem('music-playing', 'false');
+      }
+    }
+
+    // Save playback position every second
+    setInterval(() => {
+      localStorage.setItem('music-time', audio.currentTime);
+    }, 1000);
+
+    // Contact number click popup
+    document.querySelectorAll('.contact-number').forEach(function(elem) {
+      elem.addEventListener('click', function(e) {
+        // Close other popups if open
+        document.querySelectorAll('.contact-options-popup').forEach(p => p.style.display = 'none');
+        const popup = this.nextElementSibling;
+        popup.style.display = 'block';
+
+        // Click outside closes popup
+        function outsideClick(event) {
+          if (!popup.contains(event.target) && event.target !== elem) {
+            popup.style.display = 'none';
+            document.removeEventListener('mousedown', outsideClick);
+          }
+        }
+        setTimeout(() => {
+          document.addEventListener('mousedown', outsideClick);
+        }, 10);
+      });
+    });
+
+    document.querySelectorAll('.contact-options-popup').forEach(function(popup){
+      const mobSpan = popup.previousElementSibling;
+      const phone = mobSpan.getAttribute('data-phone');
+      const whatsapp = mobSpan.getAttribute('data-whatsapp');
+
+      popup.querySelector('.call-btn').onclick = function(e){
+        window.location.href = "tel:" + phone;
+        popup.style.display = 'none';
+        e.stopPropagation();
+      };
+      popup.querySelector('.wa-btn').onclick = function(e){
+        window.open("https://wa.me/" + whatsapp, '_blank');
+        popup.style.display = 'none';
+        e.stopPropagation();
+      };
+    });
+  </script>
+</body>
+</html>
